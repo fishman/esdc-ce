@@ -178,7 +178,7 @@ def init_mgmt(head_node, images=None):  # noqa: R701
         mgmt_ip = mgmt_ifconfig['addr']
 
         try:
-            mgmt_net = ipaddress.ip_network(u'%(network)s/%(netmask)s' % mgmt_ifconfig)
+            mgmt_net = ipaddress.ip_network(u'%(network)s/%(netmask)s' % mgmt_ifconfig, False)
         except Exception as exc:
             logger.exception(exc)
         else:

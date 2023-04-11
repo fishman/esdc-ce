@@ -62,7 +62,7 @@ class Subnet(_VirtModel, _DcMixin, _UserTasksModel):
 
     @staticmethod
     def get_ip_network(netaddr, netmask):
-        return ipaddress.ip_network(text_type('%s/%s' % (netaddr, netmask)))
+        return ipaddress.ip_network(text_type('%s/%s' % (netaddr, netmask)), False)
 
     @staticmethod
     def get_ip_network_hostinfo(net):

@@ -96,7 +96,7 @@ class AdminNetworkForm(SerializerForm):
     def clean_ip_network(self):
         try:
             n = '/'.join(map(str.strip, str(self.cleaned_data.get('ip_network')).split('/')))
-            net = ipaddress.ip_network(text_type(n))
+            net = ipaddress.ip_network(text_type(n), False)
         except ValueError:
             raise forms.ValidationError(_('Enter valid IPv4 network and netmask.'))
         else:
